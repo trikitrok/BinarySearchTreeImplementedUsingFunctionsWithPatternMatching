@@ -1,4 +1,4 @@
-# bst-with-pattern-matching
+# bst-with-functions-with-pattern-matching
 
 Binary Search Tree implemented using **[defun](https://github.com/killme2008/defun)** a macro to define functions with pattern matching like in Erlang or Elixir.
 
