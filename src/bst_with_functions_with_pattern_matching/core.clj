@@ -10,7 +10,6 @@
 (defun in-order
        ([tree :guard nil?]
          [])
-
        ([tree]
          (concat (in-order (left tree))
                  [(value tree)]
@@ -19,7 +18,6 @@
 (defun insert
        ([val tree :guard nil?]
          (singleton val))
-
        ([val tree]
          (if (<= val (value tree))
            (assoc tree :left (insert val (left tree)))
@@ -28,6 +26,7 @@
 (defun from-list
        ([elems :guard empty?]
          nil)
-
        ([elems]
-         (reduce #(insert %2 %1) (singleton (first elems)) (rest elems))))
+         (reduce #(insert %2 %1)
+                 (singleton (first elems))
+                 (rest elems))))
