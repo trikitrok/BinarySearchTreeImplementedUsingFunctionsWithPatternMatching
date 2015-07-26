@@ -8,14 +8,17 @@
 (defn singleton [val] {:value val})
 
 (defun in-order
-       ([tree :guard nil?] [])
+       ([tree :guard nil?]
+         [])
 
-       ([tree] (concat (in-order (left tree))
-                       [(value tree)]
-                       (in-order (right tree)))))
+       ([tree]
+         (concat (in-order (left tree))
+                 [(value tree)]
+                 (in-order (right tree)))))
 
 (defun insert
-       ([val tree :guard nil?] (singleton val))
+       ([val tree :guard nil?]
+         (singleton val))
 
        ([val tree]
          (if (<= val (value tree))
@@ -23,7 +26,8 @@
            (assoc tree :right (insert val (right tree))))))
 
 (defun from-list
-       ([elems :guard empty?] nil)
+       ([elems :guard empty?]
+         nil)
 
        ([elems]
          (reduce #(insert %2 %1) (singleton (first elems)) (rest elems))))
